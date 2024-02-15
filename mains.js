@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index < lines.length) {
           lines[index].style.display = 'block';
           index++;
-          setTimeout(displayLine, 500); // Adjust the delay (in milliseconds) between each line
+          setTimeout(displayLine, 500); 
         } else {
           // All lines are printed, display the input and button
           const inputContainer = document.getElementById('inputContainer');
@@ -25,10 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const inputText = textInput.value;
         const test = ["<br>", "Hello", "World"];
         
-        // Clear previous content
         outputContainer.innerHTML = '';
     
-        // Check if input matches "hello" (case insensitive)
         if (inputText.toLowerCase() === "hello") {
           // Display the content of the test array line by line with a timeout
           let index = 0;
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
               itemElement.innerHTML = test[index];
               outputContainer.appendChild(itemElement);
               index++;
-              setTimeout(displayLine, 500); // Adjust the delay (in milliseconds) between each line
+              setTimeout(displayLine, 500); // ms
             }
           }
           displayLine();
