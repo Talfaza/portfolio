@@ -1,3 +1,4 @@
+import {test} from './modules.js';
 document.addEventListener("DOMContentLoaded", function() {
       const lines = document.querySelectorAll('.line');
       let index = 0;
@@ -23,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
       
       function displayMessage() {
         const inputText = textInput.value;
-        const test = ["<br>", "Hello", "World"];
         
         outputContainer.innerHTML = '';
     
