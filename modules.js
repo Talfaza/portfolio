@@ -1,4 +1,4 @@
-const test = ["<br>", "Hello", "World"];
+export const test = ["<br>", "Hello", "World"];
 
 
-export {test};
+
