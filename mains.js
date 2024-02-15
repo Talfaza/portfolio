@@ -73,7 +73,7 @@ function whoami(outputId) {
 
 function socials(outputId) {
   var socials = {
-      "LinkedIn": "https://www.linkedin.com/in/yahia-charif-4aab4a29a/",
+      "LinkedIn": "https://www.linkedin.com/",
       "GitHub": "https://github.com/Talfaza"
   };
   var output = "<div>";
