@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-const asciiArt = [
-      "     '-.",
-      "        '-. _____    ",
-      " .-._      |     '.  ",
-      ":  ..      |      :  ",
-      "'-._+      |    .-' ",
-      " /  \\     .'i--i     ",
-      "/    \\ .-'_/____\\___ ",
-      "    .-'  :       "
-  ];
-
-const asciiArtElement = document.getElementById("ascii-art");
-
-function displayAsciiArtLineByLine(index) {
-    if (index < asciiArt.length) {
-        asciiArtElement.textContent += asciiArt[index] + "\n";
-        setTimeout(() => {
-            displayAsciiArtLineByLine(index + 1);
-        }, 100);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    displayAsciiArtLineByLine(0);
-});
-=======
 document.addEventListener("DOMContentLoaded", function() {
       const lines = document.querySelectorAll('.line');
       let index = 0;
@@ -33,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index < lines.length) {
           lines[index].style.display = 'block';
           index++;
-          setTimeout(displayLine, 500); // Adjust the delay (in milliseconds) between each line
+          setTimeout(displayLine, 500); 
         } else {
           // All lines are printed, display the input and button
           const inputContainer = document.getElementById('inputContainer');
@@ -52,10 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const inputText = textInput.value;
         const test = ["<br>", "Hello", "World"];
         
-        // Clear previous content
         outputContainer.innerHTML = '';
     
-        // Check if input matches "hello" (case insensitive)
         if (inputText.toLowerCase() === "hello") {
           // Display the content of the test array line by line with a timeout
           let index = 0;
@@ -65,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
               itemElement.innerHTML = test[index];
               outputContainer.appendChild(itemElement);
               index++;
-              setTimeout(displayLine, 500); // Adjust the delay (in milliseconds) between each line
+              setTimeout(displayLine, 500); // ms
             }
           }
           displayLine();
@@ -85,4 +56,3 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
     
->>>>>>> parent of f81e7cd (minor fixes)
