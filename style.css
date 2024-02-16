@@ -47,3 +47,13 @@ label {
 a {
   color: #a649c9;
 }
+
+
+.animation {
+  font-family: monospace;
+  white-space: pre;
+  padding: 10px;
+  font-size: large;
+  color: #f6f6f6;
+  line-height: 1.6;
+}
