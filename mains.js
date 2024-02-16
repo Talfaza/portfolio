@@ -3,13 +3,17 @@ var oldOutputId = "output";
 document.getElementById("terminal").focus();
 
 function newLine() {
-
     var inputLineContainer = document.createElement("div");
     inputLineContainer.classList.add("input-line");
 
     var label = document.createElement("label");
-    label.setAttribute("for", oldInputId); 
-    label.textContent = "guest@talfaza:~$";
+    label.setAttribute("for", oldInputId);
+    label.textContent = "guest@talfaza";
+
+    var symbol = document.createElement("span");
+    symbol.textContent = ":~$";
+    symbol.classList.add("label-symbol");
+    label.appendChild(symbol);
 
     var newInputId = oldInputId;
     var input = document.createElement("input");
@@ -66,7 +70,7 @@ function help(outputId) {
 }
 
 function whoami(outputId) {
-  var whoami = "guest";
+  var whoami = "guest"; 
   var output = "<div><span class='output-element'>" + whoami + "</span></div>"; // Add output container and text
   document.getElementById(outputId).innerHTML += output;
   newLine();

@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Monaco", Consolas, Lucida Console, monospace;
-  background-color: #0d0f17;
-  color: #b0b2b6;
+  background-color: #0c1210; /*background*/
+  color : #2bc0a8;
 }
 
 input {
@@ -38,4 +38,9 @@ label {
   color: #f6f6f6;
   line-height: 1.6;
 
+}
+
+.label-symbol {
+  margin-right: 5px;
+  color: #ffffff; /* :~$  */
 }
