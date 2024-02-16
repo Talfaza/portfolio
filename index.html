@@ -5,13 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talfaza | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .animation {
+            font-family: monospace;
+            white-space: pre;
+            padding: 10px;
+            font-size: large;
+            color: #f6f6f6;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
+    <div class="animation"></div>
+
     <div class="input-line">
         <label for="terminal">guest@talfaza<span class="label-symbol">:~$</span></label>        
         <input type="text" id="terminal">
     </div>
+    
     <div id="output" class="output"></div>
     <script src="mains.js"></script>
+    <script>
+        const animationDiv = document.querySelector('.animation');
+        const asciiArt = ` -._
+             '--._
+        .---.     '-..
+        )''  \`'-      \`._
+        )c  -'\\         \`.
+      ,.|\_=/              -._       _.
+    .' /   (                  ' ,----'|---.
+    | |  \\  )\\                  |\`-.|     |
+    |  \\ '_.__\`---,.____.       |   |     |
+    | \`.= ..,_'\\..\\..L__//      |   |     |
+    |         .'._   \`--'       |   |     |
+    \\        .'-._\\_            '\`.,|     |
+     \`       |    -.\`.  _,..,--- \`.-----.'
+      \\_____,|\`-.   \\ \\            | |
+      | |./| |./ \\  ,-.'            | |
+      './  './   '...-'            |_._|
+      
+      Welcome to my portfolio typ 'help' for a list of the supported commands.`;
+
+        let lines = asciiArt.split('\n');
+        let currentIndex = 0;
+        let interval;
+
+        function printLine() {
+            animationDiv.textContent += lines[currentIndex] + '\n';
+            currentIndex++;
+            if (currentIndex >= lines.length) {
+                clearInterval(interval);
+            }
+        }
+
+        interval = setInterval(printLine, 100); // Adjust speed here
+    </script>
 </body>
 </html>
