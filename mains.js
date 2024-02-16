@@ -1,5 +1,6 @@
 var oldInputId = "terminal";
 var oldOutputId = "output";
+document.getElementById("terminal").focus();
 
 function newLine() {
 
