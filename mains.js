@@ -64,17 +64,20 @@ function newLine() {
 
 
 function help(outputId) {
-  var helpItems = ["whoami", "whois", "socials", "projects", "help"];
-  var output = "<div>"; 
-  for (var i = 0; i < helpItems.length; i++) {
-      output += "<span class='output-element'>" + helpItems[i] + "</span><br>";
+    var helpItems = ["whoami", "whois", "socials", "projects", "help"];
+    var output = "<div>"; 
+    for (var i = 0; i < helpItems.length; i++) {
+        // Using setTimeout within the loop to add a delay
+        setTimeout(function(item) {
+          output += "<span class='output-element'>" + item + "</span><br>";
+          document.getElementById(outputId).innerHTML = output;
+        }, 100 * i, helpItems[i]); 
+    }
+    output += "</div>"; 
+    newLine();
+
   }
-  output += "</div>"; 
-  document.getElementById(outputId).innerHTML = output;
-  newLine();
-}
-
-
+  
 
 
 function whoami(outputId) {
@@ -83,22 +86,27 @@ function whoami(outputId) {
   document.getElementById(outputId).innerHTML += output;
   newLine();
 }
-
 function socials(outputId) {
-  var socials = {
+    var socials = {
       "LinkedIn": "https://www.linkedin.com/",
       "GitHub": "https://github.com/Talfaza"
-  };
-  var output = "<div>";
-  for (var website in socials) {
+    };
+    var output = "<div>";
+    var delay = 0; // Initial delay
+    for (var website in socials) {
       if (socials.hasOwnProperty(website)) {
-          output += "<span class='output-element'><span>" + website + "</span> : <a class='output-link' href='" + socials[website] + "' target='_blank'>" + socials[website] + "</a></span><br>";
+        setTimeout(function(website, link) {
+          output += "<span class='output-element'><span>" + website + "</span> : <a class='output-link' href='" + link + "' target='_blank'>" + link + "</a></span><br>";
+          document.getElementById(outputId).innerHTML = output;
+        }, 100 * delay, website, socials[website]); // Multiply timeout by delay
+        delay++;
       }
+    }
+    output += "</div>";
+    newLine();
+
   }
-  output += "</div>";
-  document.getElementById(outputId).innerHTML += output;
-  newLine();
-}
+  
 
 function whois(outputId) {
     var whoisText = "Hey everyone! 👋 I'm Talfaza, a third year Computer Science student with a love for all things related to technology. I've got a soft spot for Linux and the FOSS world it's like my tech playground where I love to experiment and explore. 💻 Whether it's delving into coding challenges or embracing the latest tech trends, I thrive on the excitement of learning and pushing the boundaries of what's possible. Let's dive into the endless possibilities together! 🚀";
