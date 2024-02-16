@@ -51,6 +51,9 @@ function newLine() {
                 case "socials":
                     socials(newOutputId);
                     break;
+                case "whois":
+                    whois(newOutputId);
+                    break;
                 default:
                     CommandError(newOutputId);
                     break;
@@ -58,6 +61,8 @@ function newLine() {
         }
     });
 }
+
+
 function help(outputId) {
   var helpItems = ["whoami", "whois", "socials", "projects", "help"];
   var output = "<div>"; 
@@ -69,9 +74,12 @@ function help(outputId) {
   newLine();
 }
 
+
+
+
 function whoami(outputId) {
   var whoami = "guest"; 
-  var output = "<div><span class='output-element'>" + whoami + "</span></div>"; // Add output container and text
+  var output = "<div><span class='output-element'>" + whoami + "</span></div>"; 
   document.getElementById(outputId).innerHTML += output;
   newLine();
 }
@@ -92,12 +100,31 @@ function socials(outputId) {
   newLine();
 }
 
+function whois(outputId) {
+    var whoisText = "Hey everyone! 👋 I'm Talfaza, a third year Computer Science student with a love for all things related to technology. I've got a soft spot for Linux and the FOSS world it's like my tech playground where I love to experiment and explore. 💻 Whether it's delving into coding challenges or embracing the latest tech trends, I thrive on the excitement of learning and pushing the boundaries of what's possible. Let's dive into the endless possibilities together! 🚀";
+    var words = whoisText.split(" ");
+    var i = 0;
+    var span = document.createElement("span");
+    span.classList.add("output-element"); 
+
+    var intervalId = setInterval(function() {
+        if (i < words.length) {
+            span.textContent += words[i] + " "; 
+            document.getElementById(outputId).appendChild(span); 
+            i++;
+        } else {
+            clearInterval(intervalId);
+            newLine(); 
+        }
+    }, 100); 
+}
+
+
 function CommandError(outputId){
   var output = "<div><span class='output-element'>Command not found. For a list of commands, type 'help'.</span></div>"; // Add output container and text
   document.getElementById(outputId).innerHTML += output;
   newLine();
 }
-
 //for the default input
 document.getElementById("terminal").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -112,6 +139,9 @@ document.getElementById("terminal").addEventListener("keypress", function(event)
           case "socials":
               socials(oldOutputId);
               break;
+          case "whois":
+                whois(oldOutputId);
+                break;
           default:
             CommandError(oldOutputId);
               break;
